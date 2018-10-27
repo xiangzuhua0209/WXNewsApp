@@ -1,0 +1,45 @@
+
+<view class='navigation'>
+  <view class='navigation-wrapper'>
+    <image class='navigation-image' src='/images/navigation-icon.png'></image>
+    <view class='navigation-title'>快读·资讯</view>
+  </view>
+</view>
+<scroll-view scroll-x class='scroll-tips'>
+  <view class='tips-wrapper'>
+    <view wx:for="{{titleData}}" wx:for-index='index' wx:for-item="item" class="segment-wrapper {{selected == index?'select':''}}" bindtap='bindclick' data-index='{{index}}'>
+      <view class='segment-itme'>{{item.title}}</view>
+    </view>
+  </view>
+</scroll-view>
+
+<scroll-view scroll-x scroll-with-animation scroll-into-view="{{toView}}" class='scroll-news' bindscroll="scrollAction">
+  <view class='list-wrapper'>
+    <view  wx:for="{{titleData}}" wx:for-index='index' wx:for-item="item" data-index='{{index}}' class='list-view'  id='{{item.identi}}'>
+      <scroll-view scroll-y>
+        <view class='column-list'>
+          <view wx:if="{{index == selected}}" class='hot-wrapper' bindtap='detailAction' data-index='{{0}}'>
+            <image class='hot-image' src='{{hotNewsData.firstImage}}' ></image>
+            <image class='hot-icon' src='/images/hot-icon.png'></image>
+            <view class='hot-title'>{{hotNewsData.title}}</view>
+            <view wx:if="{{hotNewsData.source.length > 0}}" class='hot-origin'>{{hotNewsData.source}}</view>
+            <view class='hot-time'>{{hotNewsData.date}}</view>
+          </view>
+            <view wx:if="{{index == selected}}" wx:for="{{newsData}}" wx:for-index="index0" wx:for-item="item" class='list-news-wrapper' >
+              <view class='news-text'>
+                <view class='news-title'>{{item.title}}</view>
+                <view class='news-nots'>
+                  <view wx:if="{{item.source.length > 0}}"class='news-origin'>{{item.source}}</view>
+                  <view class='news-time'>{{item.date}}</view>
+                </view>
+              </view>
+              <image class='news-image' src='{{item.firstImage}}'></image>
+              <button class='list-news-button' bindtap='detailAction' data-index='{{index0+1}}'>
+              </button> 
+            </view> 
+          
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</scroll-view>

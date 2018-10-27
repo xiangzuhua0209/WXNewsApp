@@ -1,0 +1,21 @@
+<view class='navigationbar'>
+  <image src='/images/left.png' class='back-icon' bindtap='backAction'></image>
+  <view class='back-title'>快读•资讯</view>
+</view>
+<view class='navigationbar-line'></view>
+<!-- <scroll-view scoll-y="true" class='news-scroll' scroll-top="160rpx" > -->
+  <view class='news-wrapper'>
+    <view class='news-title'>{{newsTitle}}</view>
+    <view class='news-info'>
+      <view class='news-about'>
+        <view wx:if="{{newsSource.length > 0}}" class='news-origin'>{{newsSource}}</view>
+        <view class='news-time'>{{newsDate}}</view>
+      </view>
+      <view class='news-pageviews'>阅读 {{newsPageviews}}</view>
+    </view>
+    <view class='news-content' wx:for="{{newsDetails}}" wx:for-index="index" wx:for-item="item">
+      <image class='content-image' wx:if='{{item.type === "image"}}' src='{{item.src}}' mode="widthFix"></image>
+      <view class='content-text' wx:if="{{item.type === 'p'}}">{{item.text}}</view>
+    </view>
+  </view>
+<!-- </scroll-view> -->

@@ -1,0 +1,159 @@
+/* client/pages/home/home.wxss */
+.navigation{
+  position: fixed;
+  top: 0rpx;
+  background-color: #349FE2;
+  height: 160rpx;
+  width: 100%;
+  z-index: 999999;
+
+}
+.navigation-wrapper{
+  display: flex;
+  align-items: center;
+  padding-top: 63rpx; /* (160-36-70)/2 + 36 */
+  padding-left: 40rpx;
+  
+}
+.navigation-image{
+  height: 70rpx;
+  width: 70rpx;
+  border-radius: 35rpx;
+
+}
+.navigation-title{
+  font-size: 30rpx;
+  color: white;
+  padding-left: 10rpx;
+}
+.scroll-tips{
+  position: fixed;
+  top: 159rpx;
+  height: 80rpx;
+  width: 100%;
+  background-color:#349FE2;
+  z-index: 999998
+
+}
+.tips-wrapper{
+  position: relative;
+  display: flex;
+}
+.segment-wrapper{
+  margin-left: 10rpx;
+  flex-shrink: 0;
+}
+.select{
+  border-bottom: 4rpx solid white;
+}
+.segment-itme{
+  font-size: 35rpx;
+  color: white;
+  padding: 15rpx 15rpx;
+}
+.scroll-news{
+  position: relative;
+  top: 240rpx;
+}
+.list-wrapper{
+  display: flex;
+}
+.list-view{
+  width: 750rpx;
+  flex-shrink: 0;
+}
+.column-list{
+  padding: 30rpx 30rpx 0rpx 30rpx;
+}
+/* 热点 */
+.hot-wrapper{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 500rpx;
+  width: 100%;
+  overflow: hidden;
+
+}
+.hot-image{
+  position:absolute;
+  z-index: -1;
+}
+.hot-icon{
+  position: absolute;
+  top: 0rpx;
+  align-self: flex-end;
+  width: 70rpx;
+  height: 70rpx;
+}
+.hot-title{
+  margin: 0rpx 20rpx;
+  font-size: 36rpx;
+  color: white;
+}
+.hot-origin{
+  margin: 10rpx 20rpx;
+  font-size: 30rpx;
+  color: #a5a5a5;
+}
+.hot-time{
+  margin: 10rpx 20rpx;
+  font-size: 30rpx;
+  color: #a5a5a5;
+}
+.list-news-button{
+  border: none!important;
+  padding: 0!important;
+  opacity: 0;
+  height: 132rpx;
+  width: 100%;
+  position: absolute;
+}
+.list-news-wrapper{
+  padding: 26rpx 0;
+  border-bottom: 1rpx solid #efefef;
+  display: flex;
+  justify-content: space-between;
+  height: 132rpx;
+  width: 100%;
+}
+.news-text{
+  position: relative;
+  height: 100%;
+  width: 70%;
+  padding-right: 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.news-title{
+  font-size: 34rpx;
+  height: 75%;
+  color: black;
+}
+.news-nots{
+  display: flex;
+  height: 25%;
+  flex-direction: row;
+}
+.news-origin{
+  font-size: 28rpx;
+  color: #c9c9c9;
+  padding-right: 20rpx; 
+  white-space: nowrap;
+
+}
+.news-time{
+  font-size: 28rpx;
+  color: #aaaaaa;
+  white-space: nowrap;/*文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止*/
+  text-overflow: ellipsis;/*显示省略符号来代表被修剪的文本*/
+  overflow: hidden;/*内容会被修剪，并且其余内容是不可见的*/
+  word-break: break-all;/*允许在单词内换行*/
+}
+.news-image{
+  height: 100%;
+  width: 30%;
+  flex-shrink: 0;
+}
