@@ -109,13 +109,14 @@ Page({
         let newsData = [];
         var firstData = result.shift();
         firstData.date = util.getDateString(firstData.date);
+        let a = "";
         for (let i = 0; i < result.length; i++) {
           var date = util.getDateString(result[i].date);
           newsData.push({
             title: result[i].title,
             date: date,
             source: result[i].source,
-            firstImage: result[i].firstImage,
+            firstImage: a.length == 0 ? "/images/placeholderImage.png" : result[i].firstImage,
             id: result[i].id,
           });
         }

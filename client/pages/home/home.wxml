@@ -22,8 +22,10 @@
             <image class='hot-image' src='{{hotNewsData.firstImage}}' ></image>
             <image class='hot-icon' src='/images/hot-icon.png'></image>
             <view class='hot-title'>{{hotNewsData.title}}</view>
-            <view wx:if="{{hotNewsData.source.length > 0}}" class='hot-origin'>{{hotNewsData.source}}</view>
-            <view class='hot-time'>{{hotNewsData.date}}</view>
+            <view class='hot-nots'>
+              <view wx:if="{{hotNewsData.source.length > 0}}" class='hot-origin'>{{hotNewsData.source}}</view>
+              <view class='hot-time'>{{hotNewsData.date}}</view>
+            </view>
           </view>
             <view wx:if="{{index == selected}}" wx:for="{{newsData}}" wx:for-index="index0" wx:for-item="item" class='list-news-wrapper' >
               <view class='news-text'>
