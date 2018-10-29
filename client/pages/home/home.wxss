@@ -55,6 +55,14 @@
   position: relative;
   top: 240rpx;
 }
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.scroll-column{
+  height: calc(100vh - 240rpx) !important;
+}
 .list-wrapper{
   display: flex;
 }
@@ -163,4 +171,18 @@
   height: 100%;
   width: 30%;
   flex-shrink: 0;
+}
+
+/* 请求失败 */
+.request-failure{
+  display: flex;
+  width: 750rpx;
+  margin-top: 600rpx;
+  line-height: 40rpx;
+  justify-content: center;
+}
+.failure-text{
+  font-size: 40rpx;
+  text-align: center;
+  color: #a5a5a5;
 }

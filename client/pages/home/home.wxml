@@ -12,11 +12,13 @@
     </view>
   </view>
 </scroll-view>
-
-<scroll-view scroll-x scroll-with-animation scroll-into-view="{{toView}}" class='scroll-news' bindscroll="scrollAction">
+<view wx:if="{{requestSuccess == false}}" class='request-failure'>
+  <view class='failure-text'>请求失败，请下拉刷新试试!</view>
+</view>
+<scroll-view wx:if="{{requestSuccess == true}}" scroll-x scroll-with-animation scroll-into-view="{{toView}}" class='scroll-news' bindscroll="scrollAction">
   <view class='list-wrapper'>
     <view  wx:for="{{titleData}}" wx:for-index='index' wx:for-item="item" data-index='{{index}}' class='list-view'  id='{{item.identi}}'>
-      <scroll-view scroll-y>
+      <scroll-view scroll-y class='scroll-column'>
         <view class='column-list'>
           <view wx:if="{{index == selected}}" class='hot-wrapper' bindtap='detailAction' data-index='{{0}}'>
             <image class='hot-image' src='{{hotNewsData.firstImage}}' ></image>

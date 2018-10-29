@@ -16,6 +16,7 @@ Page({
     newsData:'',// 除热点数据外的所有数据
     hotNewsData:'',// 热点新闻的数据
     selectedNewsId:'',// 点击的新闻id,作为跳转到下一页请求数据的参数
+    requestSuccess:true,// 请求数据成功
   },
 
   /**
@@ -116,8 +117,9 @@ Page({
             title: result[i].title,
             date: date,
             source: result[i].source,
-            firstImage: a.length == 0 ? "/images/placeholderImage.png" : result[i].firstImage,
+            firstImage: result[i].firstImage.length == 0 ? "/images/placeholderImage.png" : result[i].firstImage,
             id: result[i].id,
+            requestSuccess: true,
           });
         }
 
@@ -127,41 +129,18 @@ Page({
         })
         
       },
+      fail:res => {
+        _this.setData({
+          requestSuccess: false,
+        })
+      },
       complete: res => {
         console.log(options)
 
-        callBack && callBack();
+        typeof callBack === "function" && callBack();
       }
     })
     
-  },
-  
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
   },
 
   /**
@@ -172,19 +151,5 @@ Page({
     this.getNewsData(id,() => {
       wx.stopPullDownRefresh();
     });
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
   }
 })
