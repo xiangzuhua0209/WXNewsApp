@@ -13,9 +13,9 @@
       </view>
       <view class='news-pageviews'>阅读 {{newsPageviews}}</view>
     </view>
-    <view class='news-content' wx:for="{{newsDetails}}" wx:for-index="index" wx:for-item="item">
+    <block class='news-content' wx:for="{{newsDetails}}" wx:for-index="index" wx:for-item="item">
       <image class='content-image' wx:if='{{item.type === "image"}}' src='{{item.src}}' mode="widthFix"></image>
       <view class='content-text' wx:if="{{item.type === 'p'}}">{{item.text}}</view>
-    </view>
+    </block>
   </view>
 <!-- </scroll-view> -->

@@ -44,11 +44,13 @@ Page({
    */
   bindclick: function(options){
     var selectedData = options.currentTarget.dataset;
-    this.getNewsData(idArray[selectedData.index]);// 根据点击的新闻分类标签获取新闻数据
-    this.setData({
-      selected : selectedData.index,
-      toView : idArray[selectedData.index],
-    })    
+    if(selectedData.index !== this.selected){
+      this.getNewsData(idArray[selectedData.index]);// 根据点击的新闻分类标签获取新闻数据
+      this.setData({
+        selected: selectedData.index,
+        toView: idArray[selectedData.index],
+      })    
+    }
   },
   /**
    * 点击新闻列表某一列的事件
@@ -99,7 +101,6 @@ Page({
     根据id请求新闻数据
   */ 
   getNewsData:function(options,callBack){
-    var _this = this;
     wx.request({
       url: 'https://test-miniprogram.com/api/news/list',
       data: {
@@ -117,20 +118,20 @@ Page({
             title: result[i].title,
             date: date,
             source: result[i].source,
-            firstImage: result[i].firstImage.length == 0 ? "/images/placeholderImage.png" : result[i].firstImage,
+            firstImage: !!(result[i].firstImage) ? result[i].firstImage : "/images/placeholderImage.png" ,
             id: result[i].id,
             requestSuccess: true,
           });
         }
 
-        _this.setData({
+        this.setData({
           newsData: newsData,
           hotNewsData: firstData,
         })
         
       },
       fail:res => {
-        _this.setData({
+        this.setData({
           requestSuccess: false,
         })
       },
