@@ -12,5 +12,7 @@
 	},
 	"appid": "wx2e4322468b440e16",
 	"projectname": "%E6%96%B0%E9%97%BB",
-	"condition": {}
+	"condition": {
+        "name":"xiang"
+    }
 }
